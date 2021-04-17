@@ -1,0 +1,45 @@
+<div class="container">
+    <div ng-controller="MoviesPopularController">
+
+
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ng-repeat="movie in movies">
+                <div class="px-1 ">
+                    <div class="card rounded-0  border-0 " style="max-height: 100%">
+                        <img ng-src=""
+                            class="img-fluid card-img-top rounded-0" alt="Card image cap">
+                        <div class="card-head bg-light border-0  ">
+                            <div class="d-flex  justify-content-between px-2  ">
+                                <div class="">
+                                    <small class="font-weight-bold"></small>
+                                    <i class="fas fa-fire-alt px-1 fire-orange"></i>
+                                </div>
+                                <div class="">
+                                    <small class="font-weight-bold"></small>
+                                    <i class="far fa-star px-1 yellow"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-title">
+                            <h5 class=" text-wrap">
+                                <a href="" class=" col-xl-3 d-inline-block text-dark "
+                                    style="max-width:inherit;">
+                                    <div data-fittext data-fittext-min="10" data-fittext-max="inherit">
+                                      
+                                    </div>
+                                </a>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+
+
+
+
+
+
+    </div>
+</div>
