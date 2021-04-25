@@ -1,0 +1,31 @@
+<div class="py-5">
+    <h4 class="py-2">Top Billed Cast</h4>
+
+</div>
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+
+    <div ngxSlickItem *ngFor ="let cast of credits?.cast "class="slide">
+        <div class="px-1 ">
+            <div class="card rounded-0 border-0 " style="max-height: 100%">
+                <img src="{{ profileURL.W185 + cast?.profile_path }}"
+                    class="img-fluid card-img-top rounded-0" alt="Card image cap">
+
+                <div class="card-body">
+                    <h5 class=" text-wrap"></h5>
+                    <a href="{{'#!/'+ cast?.id}}" class="text-dark font-weight-bold  ">
+                        {{cast?.name}}</a>
+                    <p class="font-italic font-weight-normal" data-fittext data-fittext-min="10"
+                        data-fittext-max="inherit">{{cast?.character}}</p>
+                  
+
+                </div>
+            </div>
+        </div>
+    </div>
+</ngx-slick-carousel>
+
+
+
+<div>
+    <h4 class="py-2">Full Cast & Crew</h4>
+</div>

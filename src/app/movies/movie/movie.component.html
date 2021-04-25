@@ -1,1 +1,70 @@
-<p>movie works!</p>
+<div class="jumbotron-fluid  " style=" background-image: linear-gradient(rgba(27, 26, 26, 0.904), rgba(24, 23, 23, 0.9)),url({{ 'http://image.tmdb.org/t/p/w1280' + movie?.backdrop_path}});
+background-repeat: no-repeat;
+background-size: cover;">
+    <div class="container text-light">
+        <div class="row ">
+            <!-- poster -->
+            <div class="col-md-4">
+                <img class=" img-fluid d-block m-auto pb-4" src="{{ posterURL.W342 + movie?.poster_path }}"
+                   >
+            </div>
+            <!-- /poster -->
+            <!-- tabs -->
+            <div class="col-md-8 d-block align-items-center">
+                <h1>{{movie?.title}}</h1>
+                <h6>
+                    <span class="badge badge-dark px-1"></span>
+                    <span *ngFor ="let genre of movie?.genres " href="#"
+                        class="badge">{{genre?.name}} </span>
+                    <span class="badge badge-pill badge-dark px-1"><fa-icon [icon]="faClock" size="1x"></fa-icon> {{movie?.runtime}}</span>
+
+                </h6>
+                <div class="row">
+                    <div class="col-2 ">
+                        <h5><fa-icon [icon]="faStar" size="1x"[classes]="['star-yellow']"></fa-icon>
+                            {{movie?.vote_average}}
+                        </h5>
+                    </div>
+                    <div class="col-2 ">
+                        <h5>
+                            <!-- movie popularity -->
+                            {{movie?.popularity}}
+                            <fa-icon [icon]="faFireAlt" size="1x"[classes]="['fire-orange']"></fa-icon>
+                        </h5>
+                    </div>
+                </div>
+                <app-movie-menu></app-movie-menu>
+
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                    <li [ngbNavItem]="1">
+                      <a ngbNavLink>Overview</a>
+                      <ng-template ngbNavContent>
+                        <p> {{movie?.overview}} </p>
+                      </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2">
+                      <a ngbNavLink>Two</a>
+                      <ng-template ngbNavContent>
+                        <p></p>
+                      </ng-template>
+                    </li>
+                    <li [ngbNavItem]="3">
+                      <a ngbNavLink>Three</a>
+                      <ng-template ngbNavContent>
+                        <p></p>
+                      </ng-template>
+                    </li>
+                  </ul>
+                  
+                  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                  
+                  <pre></pre>
+                <!-- /tabs -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <app-credits></app-credits>
+</div>
+
